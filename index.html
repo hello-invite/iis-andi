@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Undangan Pernikahan Iis &amp; Andi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Pinyon+Script&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1b3a6b;--steel:#8fa4c0;--paper:#fff;--ink:#1b3a6b}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{font-family:'Cormorant Garamond',serif;color:var(--ink);background:var(--paper);overflow-x:hidden}
+body.lock{overflow:hidden;height:100dvh}
+#wrap{max-width:520px;margin:0 auto}
+
+/* COVER */
+#cover{position:fixed;inset:0;z-index:50;background:var(--paper);display:flex;align-items:center;justify-content:center;transition:opacity 1s ease,transform 1s ease,visibility 1s}
+#cover .stage{position:relative;width:min(100vw,520px);aspect-ratio:9/16;max-height:100dvh}
+#cover video{width:100%;height:100%;display:block;object-fit:cover}
+#cover .name{position:absolute;left:0;right:0;top:57%;text-align:center;font:400 1.05rem 'Times New Roman',Times,serif}
+#cover .name b{display:block;margin-top:4px;font:700 1.7rem 'Times New Roman',Times,serif}
+#openBtn{position:absolute;left:50%;top:71%;transform:translateX(-50%);border:1px solid var(--navy);border-radius:999px;padding:13px 34px;background:var(--navy);color:#fff;font:400 .9rem 'Poppins';letter-spacing:.06em;cursor:pointer;animation:pulse 1.8s ease-out infinite}
+#cover.open{opacity:0;visibility:hidden;transform:scale(1.1)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(27,58,107,.4)}100%{box-shadow:0 0 0 18px rgba(27,58,107,0)}}
+
+/* SLIDES */
+.slide{position:relative;overflow:hidden;opacity:0;transform:translateY(40px);filter:blur(4px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1),filter 1s}
+.slide.show{opacity:1;transform:none;filter:none}
+.slide video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;background:var(--paper)}
+.hit{position:absolute;cursor:pointer;display:block}
+.btn{display:inline-block;border:1px solid var(--steel);border-radius:999px;padding:11px 24px;background:var(--navy);color:#fff;font:400 .82rem 'Poppins';letter-spacing:.04em;text-decoration:none;cursor:pointer;transition:transform .25s,background .25s}
+.btn:active{transform:scale(.95);background:var(--steel)}
+.cd{display:flex;gap:9px;justify-content:center}
+.cd div{width:68px;padding:11px 0;border-radius:14px;background:rgba(255,255,255,.85);border:1px solid var(--navy);line-height:1}
+.cd b{display:block;font:600 1.7rem 'Cormorant Garamond',serif}
+.cd span{display:block;margin-top:4px;font:400 .56rem 'Poppins';letter-spacing:.1em;text-transform:uppercase;color:#4a6285}
+
+.rs{min-height:calc(min(100vw,520px)*16/9)}
+.rs video{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
+.rsc{position:relative;padding:64px 24px 48px;text-align:center}
+.cdp{background:#f3f5fa url(06-rsvp.webp) center/cover;min-height:340px}
+.cdp::before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.5)}
+.fill{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:44px 20px;text-align:center}
+.kic{font:400 .72rem 'Poppins';letter-spacing:.22em;text-transform:uppercase;opacity:.8}
+.sc{font:400 3.1rem 'Pinyon Script',cursive;line-height:1.05}
+.tg{font:600 1.3rem 'Cormorant Garamond',serif;letter-spacing:.04em}
+.cdp .cd{width:100%;gap:10px;margin:8px 0 6px}
+.cdp .cd div{flex:1;width:auto;max-width:84px;padding:14px 0;border-radius:14px}
+.cdp .cd b{font-size:2rem}
+.cdp .cd span{font-size:.62rem;margin-top:6px}
+.cdp .fill>*{opacity:0;transform:translateY(24px)}
+.cdp.show .fill>*{animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.cdp.show .fill>:nth-child(2){animation-delay:.12s}.cdp.show .fill>:nth-child(3){animation-delay:.24s}.cdp.show .fill>:nth-child(4){animation-delay:.36s}.cdp.show .fill>:nth-child(5){animation-delay:.48s}
+@keyframes up{to{opacity:1;transform:none}}
+/* RSVP */
+#rsvp h2{font:400 2.9rem 'Pinyon Script',cursive;line-height:1.2;margin-bottom:8px}
+#rsvp p{font-size:1.05rem;font-weight:500;opacity:.85}
+form{display:grid;gap:12px;margin-top:26px;text-align:left}
+input,select,textarea{width:100%;padding:14px 16px;border:1px solid rgba(27,58,107,.35);border-radius:14px;background:#fff;color:var(--ink);font:400 .9rem 'Poppins'}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--navy);outline-offset:1px}
+form .btn{padding:14px;font-size:.9rem;border-radius:14px}
+#wishes{max-height:300px;overflow-y:auto;text-align:left;margin-top:30px;display:grid;gap:10px;padding-right:4px;align-content:start}
+.w{background:#fff;border:1px solid rgba(27,58,107,.2);border-radius:14px;padding:12px 14px}
+.w b{font:600 1.1rem 'Cormorant Garamond',serif}
+.w span{display:block;font:400 .68rem 'Poppins';opacity:.65;margin:2px 0 6px}
+.w p{font:400 .85rem 'Poppins';white-space:pre-wrap;word-break:break-word}
+
+/* TOMBOL MELAYANG */
+.fab{position:fixed;right:14px;z-index:40;width:44px;height:44px;border-radius:50%;border:1px solid var(--steel);background:var(--navy);color:#fff;font-size:1.1rem;display:none;align-items:center;justify-content:center;cursor:pointer}
+#music{bottom:calc(14px + env(safe-area-inset-bottom))}
+#menuBtn{bottom:calc(68px + env(safe-area-inset-bottom))}
+#music.spin{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#menu{position:fixed;right:14px;bottom:calc(122px + env(safe-area-inset-bottom));z-index:41;width:200px;padding:8px;border-radius:18px;background:var(--navy);border:1px solid var(--steel);box-shadow:0 12px 30px -10px rgba(27,58,107,.6);transform-origin:bottom right;transform:scale(.6);opacity:0;visibility:hidden;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .25s,visibility .25s}
+#menu.open{transform:scale(1);opacity:1;visibility:visible}
+#menu a{display:block;padding:11px 14px;border-radius:12px;color:#fff;font:400 .85rem 'Poppins';cursor:pointer}
+#menu a:active{background:rgba(143,164,192,.4)}
+#toast{position:fixed;left:50%;bottom:76px;transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:9px 20px;border-radius:99px;font:400 .82rem 'Poppins';opacity:0;transition:.4s;z-index:60;pointer-events:none}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body class="lock">
+
+<div id="cover">
+  <div class="stage">
+    <video poster="01-cover.webp" autoplay muted loop playsinline preload="auto"><source src="01-cover.mp4" type="video/mp4"></video>
+    <div class="name">Kepada Yth.<b id="guest">Tamu Undangan</b></div>
+    <button id="openBtn">Buka Undangan</button>
+  </div>
+</div>
+
+<button class="fab" id="music" aria-label="Musik">♪</button>
+<button class="fab" id="menuBtn" aria-label="Menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button>
+<nav id="menu" aria-label="Menu undangan">
+  <a data-t="s-pembuka">Pembuka</a><a data-t="s-mempelai">Mempelai</a><a data-t="s-acara">Acara</a><a data-t="s-tanggal">Hari Bahagia</a><a data-t="s-galeri">Galeri</a><a data-t="rsvp">RSVP &amp; Ucapan</a><a data-t="s-hadiah">Tanda Kasih</a>
+</nav>
+<div id="toast"></div>
+
+<main id="wrap">
+  <div class="slide" id="s-pembuka"><video poster="02-nama.webp" muted loop playsinline preload="auto"><source src="02-nama.mp4" type="video/mp4"></video>
+  </div>
+  <div class="slide" id="s-mempelai"><video poster="03-mempelai.webp" muted loop playsinline preload="auto"><source src="03-mempelai.mp4" type="video/mp4"></video></div>
+
+  <div class="slide" id="s-acara"><video poster="04-details.webp" muted loop playsinline preload="auto"><source src="04-details.mp4" type="video/mp4"></video>
+    <a class="hit" id="maps" href="#" target="_blank" rel="noopener" aria-label="Google Maps" style="left:3%;width:40%;top:75%;height:19%"></a>
+  </div>
+
+  
+
+  <div class="slide cdp" id="s-tanggal">
+    <div class="fill">
+      <div class="kic">Menuju Hari Bahagia</div>
+      <div class="sc">Save the Date</div>
+      <div class="tg" id="tg"></div>
+      <div class="cd" id="cd"></div>
+      <a class="btn" id="saveDate" href="#" target="_blank" rel="noopener">Simpan di kalender</a>
+    </div>
+  </div>
+
+  <div class="slide" id="s-galeri"><video poster="05-gallery.webp" muted loop playsinline preload="auto"><source src="05-gallery.mp4" type="video/mp4"></video></div>
+
+  <div class="slide rs" id="rsvp"><video poster="06-rsvp.webp" muted loop playsinline preload="auto"><source src="06-rsvp.mp4" type="video/mp4"></video>
+    <div class="rsc">
+    <h2>Konfirmasi &amp; Ucapan</h2>
+    <p>Isi kehadiran Anda dan tinggalkan doa untuk kami.</p>
+    <form id="form" autocomplete="off">
+      <input id="nm" placeholder="Nama Anda" required maxlength="80">
+      <select id="st"><option>Hadir</option><option>Tidak hadir</option></select>
+      <select id="jm"><option>1 orang</option><option>2 orang</option><option>3 orang</option><option>4 orang</option></select>
+      <textarea id="ms" rows="3" placeholder="Ucapan dan doa untuk kami" maxlength="300"></textarea>
+      <input id="hp" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px">
+      <button class="btn" id="sendBtn" type="submit">Kirim</button>
+    </form>
+    <div id="wishes"></div>
+  </div>
+  </div>
+
+  <div class="slide" id="s-hadiah"><video poster="07-gift.webp" muted loop playsinline preload="auto"><source src="07-gift.mp4" type="video/mp4"></video>
+    <div class="hit" id="b1" style="left:67%;width:22%;top:60%;height:5%"></div>
+    <div class="hit" id="b2" style="left:67%;width:22%;top:87.5%;height:5%"></div>
+  </div>
+
+  
+
+  <div class="slide" id="s-penutup"><video poster="08-closing.webp" muted loop playsinline preload="auto"><source src="08-closing.mp4" type="video/mp4"></video></div>
+</main>
+
+<script>
+/* ====== UBAH DATA DI SINI ====== */
+const DATA = {
+  tanggal: "2027-01-30T09:00:00+07:00",      // tanggal & jam akad
+  kalenderMulai: "20270130T020000Z", kalenderAkhir: "20270130T060000Z",   // UTC (09.00 WIB = 02.00Z)
+  tanggalTeks: "Sabtu, 30 Januari 2027",
+  judulKalender: "Pernikahan Iis & Andi",
+  musik: "musik.mp3",                        // upload file lagu dengan nama ini
+  lokasi: "Kediaman Mempelai Wanita",
+  mapsUrl: "https://maps.app.goo.gl/2LSWabxNrJi5UTfq6",                               // tempel link Google Maps lokasi (kalau kosong, pakai pencarian dari 'lokasi')
+  rekening: ["083873540207", "1630016703400"],  // kartu atas, kartu bawah (samakan dengan desain)
+  event: "iis-andi",                        // nama unik undangan ini (data RSVP dipisah per nama)
+  api: "https://script.google.com/macros/s/AKfycbydAfDK2keRgTXWJz9LNFEt1sJgRZ9MK9g7KZVjLCUJXbh_8dmHK9Kt5kzDCbRtIVp6xA/exec"   // Apps Script untuk RSVP
+};
+/* =============================== */
+
+const $ = s => document.querySelector(s);
+const toast = t => { const e=$('#toast'); e.textContent=t; e.classList.add('on'); setTimeout(()=>e.classList.remove('on'),1800); };
+
+const to = new URLSearchParams(location.search).get('to');
+if (to) $('#guest').textContent = to.slice(0,60);
+
+$('#tg').textContent = DATA.tanggalTeks;
+$('#saveDate').href = 'https://www.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(DATA.judulKalender)+'&dates='+DATA.kalenderMulai+'/'+DATA.kalenderAkhir;
+$('#maps').href = DATA.mapsUrl || 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(DATA.lokasi);
+['b1','b2'].forEach((id,k)=>{ const i=k%2; $('#'+id).onclick=()=>navigator.clipboard.writeText(DATA.rekening[i]).then(()=>toast('Nomor tersalin')).catch(()=>toast('Gagal menyalin')); });
+
+// Countdown
+const cd=$('#cd');
+function tick(){
+  let d=new Date(DATA.tanggal)-Date.now(); if(d<0)d=0;
+  cd.innerHTML=[['Hari',864e5],['Jam',36e5],['Menit',6e4],['Detik',1e3]].map(([l,m])=>{const x=Math.floor(d/m);d-=x*m;return `<div><b>${String(x).padStart(2,'0')}</b><span>${l}</span></div>`}).join('');
+}
+tick(); setInterval(tick,1000);
+
+// Halaman muncul halus + video main hanya saat terlihat
+let started=false;
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  const v=e.target.querySelector('video');
+  if(e.isIntersecting){ e.target.classList.add('show'); if(v&&started){ v.currentTime=0; v.play().catch(()=>{}); } }
+  else if(v) v.pause();
+}),{threshold:.3});
+document.querySelectorAll('.slide').forEach(e=>io.observe(e));
+
+// Musik (tombol disembunyikan kalau file lagu tidak ada)
+const mb=$('#music'); const audio=new Audio(DATA.musik); audio.loop=true; let hasMusic=true;
+audio.onerror=()=>{ hasMusic=false; mb.style.display='none'; };
+mb.onclick=()=>{ if(audio.paused){audio.play();mb.classList.add('spin');}else{audio.pause();mb.classList.remove('spin');} };
+
+// Menu navigasi
+const menu=$('#menu'), mbtn=$('#menuBtn');
+mbtn.onclick=e=>{ e.stopPropagation(); menu.classList.toggle('open'); };
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{ menu.classList.remove('open'); document.getElementById(a.dataset.t).scrollIntoView({behavior:'smooth',block:'start'}); });
+document.addEventListener('click',e=>{ if(!menu.contains(e.target)) menu.classList.remove('open'); });
+
+// Buka undangan
+const cover=$('#cover');
+$('#openBtn').onclick=()=>{
+  if(cover.classList.contains('open')) return;
+  cover.classList.add('open'); document.body.classList.remove('lock');
+  started=true; mbtn.style.display='flex'; if(hasMusic) mb.style.display='flex';
+  audio.play().then(()=>mb.classList.add('spin')).catch(()=>{});
+  document.querySelectorAll('.slide').forEach(s=>{ const r=s.getBoundingClientRect(); if(r.top<innerHeight*.7&&r.bottom>0){ const v=s.querySelector('video'); if(v){ v.currentTime=0; v.play().catch(()=>{}); } } });
+  setTimeout(()=>cover.querySelector('video').pause(),1100);
+};
+
+// RSVP + ucapan yang tampil untuk semua tamu
+const wl=$('#wishes'), WK='wishes_local';
+function ago(t){const s=(Date.now()-new Date(t))/1000; if(isNaN(s))return''; if(s<60)return'baru saja'; if(s<3600)return Math.floor(s/60)+' menit lalu'; if(s<86400)return Math.floor(s/3600)+' jam lalu'; return Math.floor(s/86400)+' hari lalu';}
+function render(list){
+  wl.textContent='';
+  if(!list.length){const p=document.createElement('p');p.textContent='Jadilah yang pertama memberi ucapan.';wl.appendChild(p);return;}
+  list.forEach(w=>{const d=document.createElement('div');d.className='w';
+    const n=document.createElement('b');n.textContent=w.nama;
+    const s=document.createElement('span');s.textContent=(w.status==='Hadir'?'Hadir':'Tidak hadir')+' · '+ago(w.t);
+    d.append(n,s); if(w.ucapan){const p=document.createElement('p');p.textContent=w.ucapan;d.appendChild(p);} wl.appendChild(d);});
+}
+async function load(){
+  try{
+    if(DATA.api){ const r=await fetch(DATA.api+'?event='+encodeURIComponent(DATA.event)+'&t='+Date.now()); render(await r.json()); }
+    else render(JSON.parse(localStorage.getItem(WK)||'[]'));
+  }catch(err){ wl.textContent='Ucapan belum bisa dimuat.'; }
+}
+$('#form').onsubmit=async e=>{
+  e.preventDefault();
+  if($('#hp').value) return;
+  if(Date.now()-(+localStorage.getItem('wl_t')||0)<20000){ toast('Tunggu sebentar ya'); return; }
+  const d={nama:$('#nm').value.trim(),status:$('#st').value,jumlah:$('#jm').value,ucapan:$('#ms').value.trim()};
+  const b=$('#sendBtn'); b.disabled=true; b.textContent='Mengirim...';
+  try{
+    if(DATA.api){
+      await fetch(DATA.api,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({...d,event:DATA.event})});
+      await new Promise(r=>setTimeout(r,1000));
+    }else{
+      const l=JSON.parse(localStorage.getItem(WK)||'[]'); l.unshift({...d,t:new Date().toISOString()}); localStorage.setItem(WK,JSON.stringify(l.slice(0,50)));
+    }
+    localStorage.setItem('wl_t',Date.now()); $('#form').reset(); toast('Terima kasih, terkirim'); await load();
+  }catch(err){ toast('Gagal mengirim, coba lagi'); }
+  b.disabled=false; b.textContent='Kirim';
+};
+load();
+</script>
+</body>
+</html>
